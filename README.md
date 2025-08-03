@@ -1,6 +1,7 @@
 # Proyecto Data Warehouse de Ventas
 
-¡Bienvenido al repositorio **Proyecto Data Warehouse de Ventas**! 🚀 
+¡Bienvenido al repositorio **Proyecto Data Warehouse de Ventas**! 🚀
+
 Este proyecto muestra una solución completa de almacenamiento y análisis de datos, desde la creación del Data Warehouse hasta la generación de información util, aplicando las mejores prácticas de la industria en ingeniería y análisis de datos.
 
 
