@@ -1,5 +1,4 @@
 /*
-
 =============================================================
 Crear Base de Datos y Esquemas
 =============================================================
@@ -12,7 +11,6 @@ ADVERTENCIA:
     La ejecución de este script eliminará toda la base de datos 'ComercialDWProd' si existe.
     Todos los datos de la base de datos se eliminarán permanentemente. Proceda con precaución
     y asegúrese de tener copias de seguridad adecuadas antes de ejecutar este script.
-
 */
 
 
@@ -42,4 +40,5 @@ CREATE SCHEMA silver;
 GO
 
 CREATE SCHEMA gold;
+
 GO
