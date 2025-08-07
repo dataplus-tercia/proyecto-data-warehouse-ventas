@@ -10,11 +10,11 @@ Propósito del script:
 ===============================================================================
 */
 
-IF OBJECT_ID('bronze.sap_cliente_info', 'U') IS NOT NULL
-    DROP TABLE bronze.sap_cliente_info;
+IF OBJECT_ID('bronze.erp_cliente_info', 'U') IS NOT NULL
+    DROP TABLE bronze.erp_cliente_info;
 GO
 
-CREATE TABLE bronze.sap_cliente_info (
+CREATE TABLE bronze.erp_cliente_info (
     cst_id              INT,
     cst_key             NVARCHAR(50),
     cst_firstname       NVARCHAR(50),
@@ -25,11 +25,11 @@ CREATE TABLE bronze.sap_cliente_info (
 );
 GO
 
-IF OBJECT_ID('bronze.sap_producto_info', 'U') IS NOT NULL
-    DROP TABLE bronze.sap_producto_info;
+IF OBJECT_ID('bronze.erp_producto_info', 'U') IS NOT NULL
+    DROP TABLE bronze.erp_producto_info;
 GO
 
-CREATE TABLE bronze.sap_producto_info (
+CREATE TABLE bronze.erp_producto_info (
     prd_id       INT,
     prd_key      NVARCHAR(50),
     prd_nm       NVARCHAR(50),
@@ -37,5 +37,21 @@ CREATE TABLE bronze.sap_producto_info (
     prd_line     NVARCHAR(50),
     prd_start_dt DATETIME,
     prd_end_dt   DATETIME
+);
+
+IF OBJECT_ID('bronze.erp_ventas_detalle', 'U') IS NOT NULL
+    DROP TABLE bronze.erp_ventas_detalle;
+GO
+
+CREATE TABLE bronze.erp_ventas_detalle (
+    sls_ord_num  NVARCHAR(50),
+    sls_prd_key  NVARCHAR(50),
+    sls_cust_id  INT,
+    sls_order_dt INT,
+    sls_ship_dt  INT,
+    sls_due_dt   INT,
+    sls_sales    INT,
+    sls_quantity INT,
+    sls_price    INT
 );
 GO
