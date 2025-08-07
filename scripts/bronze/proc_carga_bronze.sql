@@ -26,16 +26,16 @@ BEGIN
 		PRINT '================================================';
 
 		PRINT '------------------------------------------------';
-		PRINT 'Cargando tablas de SAP';
+		PRINT 'Cargando tablas de erp';
 		PRINT '------------------------------------------------';
 
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating Tabla: bronze.sap_cliente_info';
-		TRUNCATE TABLE bronze.sap_cliente_info;
-		PRINT '>> Insertar datos en: bronze.sap_cliente_info';
-		BULK INSERT bronze.sap_cliente_info
-		FROM 'D:\proyecto_dwh\datasets\source_sap\cliente_info.csv'
+		PRINT '>> Truncating Tabla: bronze.erp_cliente_info';
+		TRUNCATE TABLE bronze.erp_cliente_info;
+		PRINT '>> Insertar datos en: bronze.erp_cliente_info';
+		BULK INSERT bronze.erp_cliente_info
+		FROM 'D:\proyecto_dwh\datasets\source_erp\cliente_info.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -46,11 +46,11 @@ BEGIN
 		PRINT '>> -------------';
 
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating Tabla: bronze.sap_producto_info';
-		TRUNCATE TABLE bronze.sap_producto_info;
-		PRINT '>> Insertar datos en: bronze.sap_producto_info';
-		BULK INSERT bronze.sap_producto_info
-		FROM 'D:\proyecto_dwh\datasets\source_sap\producto_info.csv'
+		PRINT '>> Truncating Tabla: bronze.erp_producto_info';
+		TRUNCATE TABLE bronze.erp_producto_info;
+		PRINT '>> Insertar datos en: bronze.erp_producto_info';
+		BULK INSERT bronze.erp_producto_info
+		FROM 'D:\proyecto_dwh\datasets\source_erp\producto_info.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -59,6 +59,22 @@ BEGIN
 		SET @end_time = GETDATE();
 		PRINT '>> Duración de la carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
+		
+		SET @start_time = GETDATE();
+		PRINT '>> Truncating Table: bronze.erp_ventas_detalle';
+		TRUNCATE TABLE bronze.erp_ventas_detalle;
+		PRINT '>> Inserting Data Into: bronze.erp_ventas_detalle';
+		BULK INSERT bronze.erp_ventas_detalle
+		FROM 'D:\proyecto_dwh\datasets\source_erp\ventas_detalle.csv'
+		WITH (
+			FIRSTROW = 2,
+			FIELDTERMINATOR = ',',
+			TABLOCK
+		);
+		SET @end_time = GETDATE();
+		PRINT '>> Duración de la carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
+		PRINT '>> -------------';
+				
 
 		SET @batch_end_time = GETDATE();
 		PRINT '=========================================='
