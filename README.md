@@ -9,6 +9,8 @@ Este proyecto muestra una solución completa de almacenamiento y análisis de da
 ## 🏗️ Arquitectura de Datos
 
 La arquitectura de datos para este proyecto sigue las capas **Bronce**, **Plata** y **Oro** de la Arquitectura del Medallón:
+
+
 ![Data Architecture](docs/arquitectura_datos_ventas.png)
 
 1. **Bronze Layer**: Almacena los datos sin procesar de los sistemas de origen. Los datos se introducen desde archivos CSV en una base de datos SQL Server.
